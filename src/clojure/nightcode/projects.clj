@@ -157,7 +157,7 @@
 (defn create-widgets
   [actions]
   {:new-project (ui/button :id :new-project
-                           :text (utils/get-string :new_project)
+                           :text (utils/get-string :new-project)
                            :listen [:action (:new-project actions)]
                            :focusable? false)
    :rename (ui/button :id :rename
@@ -214,7 +214,6 @@
            :update-project-buttons
            (fn [_ _ _ path]
              (s/config! (s/select @ui/root [:#remove])
-                        :visible? (not (nil? path))
                         :enabled? (and (not (nil? path))
                                        (or (contains? @ui/tree-projects path)
                                            (.isFile (io/file path)))))
